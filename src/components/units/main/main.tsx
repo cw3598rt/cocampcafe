@@ -8,14 +8,12 @@ import { useQuery } from "@apollo/client";
 export default function Main() {
   const { data } = useQuery(FETCH_BOARDS_OF_THE_BEST);
   const { data: usedItems } = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
-  console.log(data?.fetchBoardsOfTheBest);
-  console.log(usedItems?.fetchUseditemsOfTheBest);
+
   return (
     <S.Section>
       <S.BestBoards>
         <S.BestBoardsTitleBox>
           <S.BestBoardsTitle>인기 게시글</S.BestBoardsTitle>
-          <S.BoardBtn>더보기</S.BoardBtn>
         </S.BestBoardsTitleBox>
         <S.BestBoardLists>
           {data?.fetchBoardsOfTheBest.map((el) => (
@@ -42,7 +40,6 @@ export default function Main() {
       <S.BestUsedItems>
         <S.BestUsedItemsTitleBox>
           <S.BestUsedItemsTitle>인기 상품</S.BestUsedItemsTitle>
-          <S.UsedItemsBtn>더보기</S.UsedItemsBtn>
         </S.BestUsedItemsTitleBox>
         <S.BestUsedItemsLists>
           {usedItems?.fetchUseditemsOfTheBest.map((el) => (
