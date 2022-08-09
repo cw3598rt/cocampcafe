@@ -26,7 +26,7 @@ export const BoardList = styled.li`
   cursor: pointer;
 `;
 export const Imgs = styled.img`
-  width: 5.8em;
+  width: 100%;
   height: 5.8em;
 `;
 export const InfoBox = styled.div`

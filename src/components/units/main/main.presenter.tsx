@@ -1,14 +1,5 @@
 import * as S from "./main.styles";
-import {
-  FETCH_BOARDS_OF_THE_BEST,
-  FETCH_USED_ITEMS_OF_THE_BEST,
-} from "./main.query";
-import { useQuery } from "@apollo/client";
-
-export default function Main() {
-  const { data } = useQuery(FETCH_BOARDS_OF_THE_BEST);
-  const { data: usedItems } = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
-
+export default function MainUI(props) {
   return (
     <S.Section>
       <S.BestBoards>
@@ -16,7 +7,7 @@ export default function Main() {
           <S.BestBoardsTitle>인기 게시글</S.BestBoardsTitle>
         </S.BestBoardsTitleBox>
         <S.BestBoardLists>
-          {data?.fetchBoardsOfTheBest.map((el) => (
+          {props.data?.fetchBoardsOfTheBest.map((el) => (
             <S.BestBoardList key={el._id}>
               {el.images.filter((el) => el !== "")[0] && (
                 <S.Imgs
@@ -42,7 +33,7 @@ export default function Main() {
           <S.BestUsedItemsTitle>인기 상품</S.BestUsedItemsTitle>
         </S.BestUsedItemsTitleBox>
         <S.BestUsedItemsLists>
-          {usedItems?.fetchUseditemsOfTheBest.map((el) => (
+          {props.usedItems?.fetchUseditemsOfTheBest.map((el) => (
             <S.BestUsedItemsList key={el._id}>
               {el.images.filter((el) => el !== "")[0] && (
                 <S.Imgs
