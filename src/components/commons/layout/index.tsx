@@ -4,8 +4,6 @@ import styled from "@emotion/styled";
 import Footer from "./footer/footer";
 
 const Wrapper = styled.section`
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,6 +14,11 @@ const SideBarBox = styled.div`
   top: 8em;
   right: 10em;
 `;
+const Contents = styled.div`
+  margin-top: 2em;
+  height: 80%;
+  margin-bottom: 2em;
+`;
 export default function Layout(props) {
   return (
     <Wrapper>
@@ -23,7 +26,7 @@ export default function Layout(props) {
       <SideBarBox>
         <Sidebar />
       </SideBarBox>
-      <div>{props.children}</div>
+      <Contents>{props.children}</Contents>
       <Footer />
     </Wrapper>
   );
