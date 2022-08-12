@@ -10,7 +10,8 @@ export default function BoardList() {
   const { data: BoardCount } = useQuery(FETCH_BOARDS_COUNT);
   const lastPage = BoardCount?.fetchBoardsCount / 10;
   const onClickMoveToDetail = (event) => {
-    router.push(`/boards/detail/${event.target.id}`);
+    console.log(event.target.id);
+    router.push(`/boards/detail/${event.currentTarget.id}`);
   };
   return (
     <BoardListUI
