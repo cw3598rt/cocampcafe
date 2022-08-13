@@ -9,7 +9,9 @@ export default function BoardDetailUI(props) {
       <S.Header>
         <S.Writer>작성자: {props.data?.fetchBoard.writer}</S.Writer>
         <S.WriterDetailInfoBox>
-          <S.Location>{props.data?.fetchBoard.boardAddress.address}</S.Location>
+          <S.Location>
+            {props.data?.fetchBoard.boardAddress?.address}
+          </S.Location>
           <S.Date>{timeForToday(props.data?.fetchBoard.createdAt)}</S.Date>
         </S.WriterDetailInfoBox>
       </S.Header>
