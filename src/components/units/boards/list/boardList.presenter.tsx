@@ -30,6 +30,7 @@ export default function BoardListUI(props) {
           </S.BoardList>
         ))}
       </S.BoardBox>
+      <S.WriteButton onClick={props.onClickMoveToWrite}>작성하기</S.WriteButton>
       <Pagination lastPage={props.lastPage} refetch={props.refetch} />
     </S.Section>
   );

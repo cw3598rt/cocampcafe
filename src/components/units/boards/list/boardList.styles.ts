@@ -3,6 +3,8 @@ export const Section = styled.section`
   width: 50%;
   height: 100%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
 `;
 export const BoardBox = styled.ul`
   width: 100%;
@@ -50,4 +52,19 @@ export const Writer = styled.span`
 export const CreatedAt = styled.div`
   font-size: 0.6em;
   font-weight: 550;
+`;
+export const WriteButton = styled.button`
+  border: none;
+  width: 5em;
+  height: 3em;
+  border-radius: 10px;
+  align-self: flex-end;
+  margin-bottom: 2em;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.2);
+    background-color: cadetblue;
+    color: whitesmoke;
+  }
+  transition: all 250ms ease-in;
 `;

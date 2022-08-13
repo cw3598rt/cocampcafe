@@ -13,12 +13,17 @@ export default function BoardList() {
     console.log(event.target.id);
     router.push(`/boards/detail/${event.currentTarget.id}`);
   };
+
+  const onClickMoveToWrite = () => {
+    router.push("/boards/write");
+  };
   return (
     <BoardListUI
       data={data}
       refetch={refetch}
       lastPage={lastPage}
       onClickMoveToDetail={onClickMoveToDetail}
+      onClickMoveToWrite={onClickMoveToWrite}
     />
   );
 }
