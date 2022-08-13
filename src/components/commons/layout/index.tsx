@@ -15,7 +15,6 @@ const SideBarBox = styled.div`
   right: 10em;
 `;
 const Contents = styled.div`
-  margin-top: 2em;
   height: 80%;
   margin-bottom: 2em;
 `;

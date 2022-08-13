@@ -11,6 +11,7 @@ export const FETCH_BOARD = gql`
       likeCount
       dislikeCount
       images
+      createdAt
       boardAddress {
         _id
         zipcode
@@ -18,5 +19,20 @@ export const FETCH_BOARD = gql`
         addressDetail
       }
     }
+  }
+`;
+export const LIKE_BOARD = gql`
+  mutation likeBoard($boardId: ID!) {
+    likeBoard(boardId: $boardId)
+  }
+`;
+export const DISLIKE_BOARD = gql`
+  mutation dislikeBoard($boardId: ID!) {
+    dislikeBoard(boardId: $boardId)
+  }
+`;
+export const DELETE_BOARD = gql`
+  mutation deleteBoard($boardId: ID!) {
+    deleteBoard(boardId: $boardId)
   }
 `;

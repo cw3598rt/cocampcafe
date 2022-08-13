@@ -8,11 +8,26 @@ export const Section = styled.section`
 `;
 export const PrevBtn = styled.span`
   cursor: pointer;
+  :hover {
+    transform: scale(1.2);
+    color: cadetblue;
+  }
+  transition: all 200ms ease-in;
 `;
 export const NextBtn = styled.span`
   cursor: pointer;
+  :hover {
+    transform: scale(1.2);
+    color: cadetblue;
+  }
+  transition: all 200ms ease-in;
 `;
 export const Pages = styled.span`
   font-weight: 600;
   cursor: pointer;
+  :hover {
+    transform: scale(1.2);
+    color: cadetblue;
+  }
+  transition: all 200ms ease-in;
 `;
