@@ -20,10 +20,14 @@ export const BoardList = styled.li`
   margin: 1em 1em 1em 1em;
   padding: 0.5em;
   border-radius: 4px;
-  background-color: lightblue;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  :hover {
+    transform: scale(1.1);
+  }
+  transition: all 250ms ease-in;
 `;
 export const Imgs = styled.img`
   width: 100%;
