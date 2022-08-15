@@ -7,7 +7,6 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
 `;
 const SideBarBox = styled.div`
   position: absolute;
@@ -15,8 +14,10 @@ const SideBarBox = styled.div`
   right: 10em;
 `;
 const Contents = styled.div`
+  width: 100%;
   height: 80%;
   margin-bottom: 2em;
+  position: relative;
 `;
 export default function Layout(props) {
   return (
