@@ -5,6 +5,12 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
 `;
+export const Form = styled.form`
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+`;
 export const WriterInfoBox = styled.div`
   display: flex;
   flex-direction: row;
@@ -112,18 +118,129 @@ export const ContentsInput = styled.textarea`
 `;
 export const YoutubePreviewContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  margin: auto;
 `;
 export const YoutubePreviewLabel = styled.span`
   font-size: 1em;
   color: cadetblue;
 `;
+export const NoVideo = styled.img`
+  width: 10em;
+  height: 10em;
+  align-self: center;
+`;
 export const PictureBox = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 2em;
+`;
+export const PictureContainer = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+`;
+export const PictureLabel = styled.div`
+  font-size: 1em;
+  color: cadetblue;
+  align-self: center;
+`;
+export const ImgBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+export const Imgs = styled.img`
+  width: 30%;
+`;
+export const AdddressContainer = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+`;
+export const AddressLabel = styled.div`
+  font-size: 1em;
+  color: cadetblue;
+  align-self: center;
+`;
+
+export const AddressInputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+`;
+
+export const PostCodeBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+`;
+export const PostCodeInput = styled.input`
+  width: 7em;
+  height: 2em;
+  padding: 1em;
+  text-align: center;
+  border: 2px solid cadetblue;
+  border-radius: 5px;
+  outline-color: cadetblue;
+  cursor: default;
+`;
+export const PostCodeSearchBtn = styled.button`
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: cadetblue;
+  color: whitesmoke;
+`;
+export const AddressInput = styled.input`
+  width: 18em;
+  height: 2em;
+  padding: 1em;
+  border: 2px solid cadetblue;
+  border-radius: 5px;
+  outline-color: cadetblue;
+  cursor: default;
+`;
+export const AddressDetailInput = styled.input`
+  width: 20em;
+  height: 2em;
+  padding: 1em;
+  border: 2px solid cadetblue;
+  border-radius: 5px;
+  outline-color: cadetblue;
+`;
+
+export const Btns = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  gap: 2em;
+`;
+export const WriteBtn = styled.button`
+  width: 8em;
+  height: 3em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: cadetblue;
+  color: whitesmoke;
+`;
+export const CancelBtn = styled.button`
+  width: 8em;
+  height: 3em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgray;
+`;
+export const Error = styled.div`
+  font-size: 0.8em;
+  color: red;
 `;
