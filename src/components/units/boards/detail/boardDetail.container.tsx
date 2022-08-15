@@ -65,6 +65,10 @@ export default function BoardDetail() {
       ],
     });
   };
+  const onClickMoveToEdit = () => {
+    router.push(`/boards/detail/${router.query._id}/edit`);
+  };
+
   return (
     <BoardDetailUI
       data={data}
@@ -72,6 +76,7 @@ export default function BoardDetail() {
       onClickDisLikeCount={onClickDisLikeCount}
       onClickMoveToList={onClickMoveToList}
       onClickDeleteBoard={onClickDeleteBoard}
+      onClickMoveToEdit={onClickMoveToEdit}
     />
   );
 }

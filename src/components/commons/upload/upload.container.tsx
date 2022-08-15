@@ -11,7 +11,7 @@ export default function UploadImg(props) {
     const imgfile = event.target.files?.[0];
     const newFile = [...props.files];
     newFile[Number(props.imgIndex)] = imgfile;
-    props.setFile(newFile);
+    props.setFiles(newFile);
     const fileReader = new FileReader();
     fileReader.readAsDataURL(imgfile);
     fileReader.onload = (data) => {
@@ -25,6 +25,7 @@ export default function UploadImg(props) {
 
   return (
     <UploadImgUI
+      isEdit={props.isEdit}
       onClickRealFileInput={onClickRealFileInput}
       fileInputRef={fileInputRef}
       imgUrl={props.imgUrl}
