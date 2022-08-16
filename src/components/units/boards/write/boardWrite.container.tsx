@@ -106,6 +106,13 @@ export default function BoardWrite(props) {
       updateBoardInput.boardAddress.addressDetail = data.addressDetail;
 
     try {
+      const resultonFileUpload = await Promise.all(
+        files.map((file) => file && uploadFilegql({ variables: { file } }))
+      );
+      const images = resultonFileUpload.map((el) =>
+        el ? el.data.uploadFile.url : ""
+      );
+      if (images) updateBoardInput.images = images;
       const result = await updateBoardgql({
         variables: {
           updateBoardInput,
