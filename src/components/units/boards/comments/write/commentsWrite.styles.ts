@@ -7,6 +7,11 @@ export const Section = styled.section`
   margin: auto;
   gap: 2em;
 `;
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+`;
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -65,6 +70,7 @@ export const ButtonBox = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   gap: 2em;
+  margin-bottom: 2em;
 `;
 
 export const WriteButton = styled.button`
@@ -84,4 +90,8 @@ export const CancelButton = styled.button`
   width: 3em;
   height: 3em;
   cursor: pointer;
+`;
+export const Error = styled.div`
+  font-size: 1em;
+  color: red;
 `;
