@@ -1,11 +1,13 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import UploadImgUI from "./upload.presenter";
 
 export default function UploadImg(props) {
+  const [isEdit, setIsEdit] = useState(false);
   const fileInputRef = useRef();
   const onClickRealFileInput = (index) => () => {
     fileInputRef.current.click();
     props.setImgIndex(index);
+    setIsEdit(true);
   };
   const onChangeFile = (event) => {
     const imgfile = event.target.files?.[0];
@@ -25,7 +27,7 @@ export default function UploadImg(props) {
 
   return (
     <UploadImgUI
-      isEdit={props.isEdit}
+      isEdit={isEdit}
       onClickRealFileInput={onClickRealFileInput}
       fileInputRef={fileInputRef}
       imgUrl={props.imgUrl}
