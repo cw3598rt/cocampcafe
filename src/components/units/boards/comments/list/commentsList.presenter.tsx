@@ -8,6 +8,13 @@ export default function CommentsListUI(props) {
           key={comment._id}
           comment={comment}
           desc={props.desc}
+          onClickDeleteComment={props.onClickDeleteComment}
+          isModalVisible={props.isModalVisible}
+          showModal={props.showModal}
+          handleOk={props.handleOk}
+          handleCancel={props.handleCancel}
+          onChangePassword={props.onChangePassword}
+          isEdit={props.isEdit}
         />
       ))}
     </>
