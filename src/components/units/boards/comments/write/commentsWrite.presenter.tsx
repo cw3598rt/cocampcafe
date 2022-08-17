@@ -3,15 +3,40 @@ import * as S from "./commentsWrite.styles";
 export default function CommentsWriteUI(props) {
   return (
     <S.Section>
-      <S.Form onSubmit={props.handleSubmit(props.onSubmitCreateComment)}>
+      <S.Form
+        onSubmit={
+          props.isEdit
+            ? props.handleSubmit(props.onSubmitUpdateComment)
+            : props.handleSubmit(props.onSubmitCreateComment)
+        }
+      >
         <S.Wrapper>
-          <div>
-            <S.WriterBox>
-              <S.Writer>작성자:</S.Writer>
-              <S.WriterInput type="text" {...props.register("writer")} />
-            </S.WriterBox>
-            <S.Error>{props.formState.errors.writer?.message}</S.Error>
-          </div>
+          {!props.isEdit && (
+            <div>
+              <S.WriterBox>
+                <S.Writer>작성자:</S.Writer>
+                <S.WriterInput
+                  type="text"
+                  {...props.register("writer")}
+                  defaultValue={props.defauldData?.writer}
+                />
+              </S.WriterBox>
+              <S.Error>{props.formState.errors.writer?.message}</S.Error>
+            </div>
+          )}
+          {props.isEdit && (
+            <div>
+              <S.WriterBox>
+                <S.Writer>작성자:</S.Writer>
+                <S.WriterInput
+                  type="text"
+                  {...props.register("writer")}
+                  defaultValue={props.defauldData?.writer}
+                  readOnly
+                />
+              </S.WriterBox>
+            </div>
+          )}
           <div>
             <S.PasswordBox>
               <S.Password>비밀번호:</S.Password>
@@ -27,7 +52,7 @@ export default function CommentsWriteUI(props) {
             <Rate
               tooltips={props.desc}
               onChange={props.setValue}
-              value={props.value}
+              value={props.value || props.defauldData?.rating}
             />
             {props.value ? (
               <S.Starcomment className="ant-rate-text">
@@ -42,12 +67,13 @@ export default function CommentsWriteUI(props) {
           <S.Contents
             name="contents"
             {...props.register("contents")}
+            defaultValue={props.defauldData?.contents}
           ></S.Contents>
           <S.Error>{props.formState.errors.contents?.message}</S.Error>
         </div>
 
         <S.ButtonBox>
-          <S.WriteButton>댓글 등록</S.WriteButton>
+          <S.WriteButton>{props.isEdit ? "수정" : "등록"}</S.WriteButton>
           <S.CancelButton type="reset">취소</S.CancelButton>
         </S.ButtonBox>
       </S.Form>
