@@ -8,13 +8,16 @@ export default function Header() {
   const onClickMoveToMain = () => {
     router.push("/");
   };
+  const onClickMoveToSignup = () => {
+    router.push("/signup");
+  };
   return (
     <S.Header>
       <S.Logo src="/logo.png" alt="thumbnail" onClick={onClickMoveToMain} />
       <S.Section>
         <S.UserBox>
           <S.Login>로그인</S.Login>
-          <S.Signup>회원가입</S.Signup>
+          <S.Signup onClick={onClickMoveToSignup}>회원가입</S.Signup>
         </S.UserBox>
         <S.MenuBox>
           <S.Board onClick={onClickMoveToBoard}>코캠7기 게시판</S.Board>
