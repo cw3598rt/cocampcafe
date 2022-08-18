@@ -12,7 +12,13 @@ export const Title = styled.h1`
   font-size: 2.5em;
   color: cadetblue;
 `;
-
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  gap: 3em;
+`;
 export const InputBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -102,4 +108,8 @@ export const CancelButton = styled.button`
   background-color: lightgray;
   color: black;
   cursor: pointer;
+`;
+export const Error = styled.div`
+  font-size: 1em;
+  color: red;
 `;
