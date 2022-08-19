@@ -1,11 +1,13 @@
-import { useMutation } from "@apollo/client";
+import { useApolloClient, useMutation } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import LoginUI from "./login.presenter";
-import { LOGIN_USER } from "./login.query";
+import { LOGIN_USER, FETCH_USER_LOGGED_IN } from "./login.query";
 import { Modal } from "antd";
+import { useRecoilState } from "recoil";
+import { accessTokenState, userInfoState } from "../../../commons/store";
 const schema = yup.object({
   email: yup
     .string()
@@ -24,19 +26,34 @@ const schema = yup.object({
 });
 export default function Login() {
   const router = useRouter();
+  const client = useApolloClient();
   const [logingql] = useMutation(LOGIN_USER);
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
   const onSubmitLogin = async (data) => {
     try {
-      await logingql({
+      const result = await logingql({
         variables: {
           email: data.email,
           password: data.password,
         },
       });
+      const accessToken = result.data.loginUser.accessToken;
+      const resultUserInfo = await client.query({
+        query: FETCH_USER_LOGGED_IN,
+        context: {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        },
+      });
+      const userInfo = resultUserInfo.data.fetchUserLoggedIn;
+      setAccessToken(accessToken);
+      setUserInfo(userInfo);
       router.push("/");
     } catch (error) {
       Modal.error({ content: "error.message" });

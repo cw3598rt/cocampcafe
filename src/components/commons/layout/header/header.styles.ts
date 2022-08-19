@@ -37,6 +37,15 @@ export const Signup = styled.span`
   font-weight: 600;
   cursor: pointer;
 `;
+export const UserName = styled.span`
+  font-size: 1em;
+  color: cadetblue;
+`;
+export const Logout = styled.span`
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+`;
 export const MenuBox = styled.div`
   display: flex;
   flex-direction: row;
