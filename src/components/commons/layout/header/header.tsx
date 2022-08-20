@@ -1,10 +1,17 @@
+import { gql, useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { accessTokenState, userInfoState } from "../../../../commons/store";
 import * as S from "./header.styles";
+const LOG_OUT_USER = gql`
+  mutation {
+    logoutUser
+  }
+`;
 export default function Header() {
   const [userInfo, setUserInfo] = useRecoilState(userInfoState);
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [logOutgql] = useMutation(LOG_OUT_USER);
   const router = useRouter();
   const onClickMoveToBoard = () => {
     router.push("/boards/list");
@@ -17,6 +24,10 @@ export default function Header() {
   };
   const onClickMoveToLogin = () => {
     router.push("/login");
+  };
+  const onClickLogout = async () => {
+    await logOutgql();
+    setAccessToken("");
   };
   return (
     <S.Header>
@@ -31,7 +42,7 @@ export default function Header() {
         {accessToken && (
           <S.UserBox>
             <S.UserName>{userInfo.name}님 환영합니다!</S.UserName>
-            <S.Signup>로그아웃</S.Signup>
+            <S.Signup onClick={onClickLogout}>로그아웃</S.Signup>
           </S.UserBox>
         )}
         <S.MenuBox>
