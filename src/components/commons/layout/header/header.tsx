@@ -25,6 +25,9 @@ export default function Header() {
   const onClickMoveToLogin = () => {
     router.push("/login");
   };
+  const onClickMoveToMarket = () => {
+    router.push("/markets/list");
+  };
   const onClickLogout = async () => {
     await logOutgql();
     setAccessToken("");
@@ -47,7 +50,7 @@ export default function Header() {
         )}
         <S.MenuBox>
           <S.Board onClick={onClickMoveToBoard}>코캠7기 게시판</S.Board>
-          <S.Market>코캠7기 장터</S.Market>
+          <S.Market onClick={onClickMoveToMarket}>코캠7기 장터</S.Market>
         </S.MenuBox>
       </S.Section>
     </S.Header>
