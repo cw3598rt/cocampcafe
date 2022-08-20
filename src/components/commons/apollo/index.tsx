@@ -2,6 +2,7 @@ import {
   ApolloClient,
   ApolloLink,
   ApolloProvider,
+  gql,
   InMemoryCache,
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
@@ -10,19 +11,43 @@ import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import {
   accessTokenState,
   restoreAccessTokenLoadable,
+  userInfoState,
 } from "../../../commons/store";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
 import { useEffect } from "react";
+const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+      email
+      name
+      picture
+      userPoint {
+        amount
+      }
+      createdAt
+    }
+  }
+`;
 export default function ApolloSetting(props) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
   const Auth = useRecoilValueLoadable(restoreAccessTokenLoadable);
   useEffect(() => {
-    // Auth.toPromise().then((newAccessToken) => {
-    //   setAccessToken(newAccessToken);
-    // });
-    getAccessToken().then((Token) => {
-      setAccessToken(Token);
-    });
+    Auth.toPromise()
+      .then(async (newAccessToken) => {
+        setAccessToken(newAccessToken);
+        const result = await client.query({
+          query: FETCH_USER_LOGGED_IN,
+          context: {
+            headers: {
+              Authorization: `Bearer ${newAccessToken}`,
+            },
+          },
+        });
+        setUserInfo(result.data.fetchUserLoggedIn);
+      })
+      .catch((error) => console.log(error.message));
   }, []);
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {
