@@ -30,7 +30,7 @@ export default function MarketList() {
     router.push("/markets/write");
   };
   const onClickMoveToDetail = (useditemId: string) => () => {
-    router.push(`markets/detail/${useditemId}`);
+    router.push(`/markets/detail/${useditemId}`);
   };
   return (
     <MarketListUI
