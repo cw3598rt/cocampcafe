@@ -76,7 +76,7 @@ export default function MarketDetailUI(props) {
         );
       });
     };
-  }, [props.data?.fetchUseditem.useditemAddress.address]);
+  }, [props.data?.fetchUseditem.useditemAddress?.address]);
 
   return (
     <S.Section>
@@ -155,11 +155,11 @@ export default function MarketDetailUI(props) {
           <div id="roadview" style={{ height: "100%" }}></div>
         </div>
       </div>
-      <div>
-        <button>장바구니</button>
-        <button>구매하기</button>
-        <button>찜</button>
-      </div>
+      <S.ButtonBox>
+        <S.Buttons>장바구니</S.Buttons>
+        <S.Buttons>구매하기</S.Buttons>
+        <S.Buttons>찜</S.Buttons>
+      </S.ButtonBox>
     </S.Section>
   );
 }
