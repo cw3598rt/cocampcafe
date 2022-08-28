@@ -44,6 +44,7 @@ export const ContentsBox = styled.div`
   justify-content: space-between;
 `;
 export const ItemBox = styled.div`
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 2em;
@@ -64,7 +65,7 @@ export const SubImgs = styled.img`
   height: 10em;
 `;
 export const UsedItemDetailInfoBox = styled.div`
-  width: 30%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -82,12 +83,80 @@ export const Price = styled.span`
   font-size: 1em;
 `;
 export const ButtonBox = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 2em;
 `;
-export const Buttons = styled.button`
-  width: 8em;
+export const BasketButton = styled.button`
+  width: 30%;
+  height: 3em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgray;
+  :hover {
+    background-color: cadetblue;
+    color: whitesmoke;
+  }
+  transition: all 250ms ease-in;
+`;
+export const PurchaseButton = styled.button`
+  width: 30%;
+  height: 3em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgray;
+  :hover {
+    background-color: cadetblue;
+    color: whitesmoke;
+  }
+  transition: all 250ms ease-in;
+`;
+export const PickButton = styled.button`
+  width: 30%;
+  height: 3em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: ${(props) => (props.isPicked ? "cadetblue" : "lightgray")};
+  color: ${(props) => (props.isPicked ? "whitesmoke" : "black")};
+  :hover {
+    background-color: cadetblue;
+    color: whitesmoke;
+  }
+  transition: all 250ms ease-in;
+`;
+export const ListButton = styled.button`
+  width: 20%;
+  height: 3em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgray;
+  :hover {
+    background-color: cadetblue;
+    color: whitesmoke;
+  }
+  transition: all 250ms ease-in;
+`;
+export const UpdateButton = styled.button`
+  width: 20%;
+  height: 3em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgray;
+  :hover {
+    background-color: cadetblue;
+    color: whitesmoke;
+  }
+  transition: all 250ms ease-in;
+`;
+export const DeleteButton = styled.button`
+  width: 20%;
   height: 3em;
   cursor: pointer;
   border: none;

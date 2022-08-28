@@ -1,5 +1,7 @@
+import { useState } from "react";
 import MakeWriteUI from "./marketWrite.presenter";
 
 export default function MakeWrite() {
-  return <MakeWriteUI />;
+  const [imgUrl, setImgUrl] = useState(["", "", ""]);
+  return <MakeWriteUI imgUrl={imgUrl} />;
 }

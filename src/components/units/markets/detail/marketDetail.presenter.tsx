@@ -136,6 +136,16 @@ export default function MarketDetailUI(props) {
           )}
 
           <S.Price>{props.data?.fetchUseditem.price}원</S.Price>
+          <S.ButtonBox>
+            <S.BasketButton>장바구니</S.BasketButton>
+            <S.PurchaseButton>구매하기</S.PurchaseButton>
+            <S.PickButton
+              onClick={props.onClickPickItem(props.data?.fetchUseditem._id)}
+              isPicked={props.isPicked}
+            >
+              찜
+            </S.PickButton>
+          </S.ButtonBox>
         </S.UsedItemDetailInfoBox>
       </S.ContentsBox>
       <div id="container" className="view_map" style={{ width: "100%" }}>
@@ -156,9 +166,13 @@ export default function MarketDetailUI(props) {
         </div>
       </div>
       <S.ButtonBox>
-        <S.Buttons>장바구니</S.Buttons>
-        <S.Buttons>구매하기</S.Buttons>
-        <S.Buttons>찜</S.Buttons>
+        <S.ListButton onClick={props.onClickMoveToList}>목록으로</S.ListButton>
+        <S.UpdateButton>수정하기</S.UpdateButton>
+        <S.DeleteButton
+          onClick={props.onClickDeleteUsedItem(props.data?.fetchUseditem._id)}
+        >
+          삭제하기
+        </S.DeleteButton>
       </S.ButtonBox>
     </S.Section>
   );
