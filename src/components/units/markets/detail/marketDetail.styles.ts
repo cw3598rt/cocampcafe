@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { symlinkSync } from "fs";
 
 export const Section = styled.section`
   width: 50%;
@@ -81,4 +80,22 @@ export const Contents = styled.pre`
 `;
 export const Price = styled.span`
   font-size: 1em;
+`;
+export const ButtonBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+`;
+export const Buttons = styled.button`
+  width: 8em;
+  height: 3em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgray;
+  :hover {
+    background-color: cadetblue;
+    color: whitesmoke;
+  }
+  transition: all 250ms ease-in;
 `;
